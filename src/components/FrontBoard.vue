@@ -7,12 +7,11 @@
 </template>
 <script>
 import Header from "@/components/Header.vue";
-import Body from "@/components/Body.vue";
 import Footer from "@/components/Footer.vue";
 import join from "@/components/Join.vue";
 
 export default ({
-  components: {Footer, Header}
+  components: {Footer, Header, join}
 })
 
 </script>

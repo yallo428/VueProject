@@ -1,17 +1,28 @@
 <template>
   <div id="app">
     <Header id="header"/>
+    <Transition name ="fade" v-if = >
+    <SideBar></SideBar>
+    </Transition>
     <router-view></router-view>
     <Footer id="footer"/>
   </div>
 </template>
 <script>
-import Header from "@/components/Header.vue";
-import Footer from "@/components/Footer.vue";
-import join from "@/components/Join.vue";
+import Header from "../components/Header.vue";
+import Footer from "../components/Footer.vue";
+import join from "../components/Join.vue";
+import SideBar from "../components/SideBar.vue";
 
 export default ({
-  components: {Footer, Header, join}
+  components: {Footer, Header, join, SideBar},
+
+  methods: {
+    showSide(){
+      this.$refs().Header.toggle();
+    }
+
+  }
 })
 
 </script>

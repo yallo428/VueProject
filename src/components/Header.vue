@@ -1,13 +1,19 @@
 <template>
   <header>
     <div class="nav-bar">
+      <div class="side-bar">
+        <label class="menuicon" @click = "toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+      </div>
       <router-link to="/" class="h-title">하늘과 따까리</router-link>
       <div class="nav-items">
         <ul class="nav-list">
           <li class="nav-li">
             <a href="" class="nav-item" data-bs-toggle="modal" data-bs-target="#exampleModal">
-              로그인
-            </a>
+              로그인</a>
             <!-- Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                  aria-hidden="true">
@@ -18,11 +24,11 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                    <div class = "id-input-area">
-                      <input type="text" class = "id-input" placeholder="아이디">
+                    <div class="id-input-area">
+                      <input type="text" class="id-input" placeholder="아이디">
                     </div>
-                    <div class = "pwd-input-area">
-                      <input type="text" class = "pwd-input" placeholder="비밀번호">
+                    <div class="pwd-input-area">
+                      <input type="text" class="pwd-input" placeholder="비밀번호">
                     </div>
                   </div>
                   <div class="modal-footer">
@@ -43,7 +49,7 @@
             <router-link to="/" class="nav-item">미정</router-link>
           </li>
         </ul>
-      </div>
+      </div><!--네비바-->
     </div>
   </header>
 </template>
@@ -55,10 +61,19 @@ export default {
   components: {InsertForm},
   data() {
     return {
-      searchWords: ""
+      searchWords: "",
+      sideBarState:false
     }
   },
-  methods: ({})
+  props:{
+
+  },
+  methods: ({
+      toggle(){
+        this.sideBarState = true;
+      }
+
+  })
 }
 </script>
 

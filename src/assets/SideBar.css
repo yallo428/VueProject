@@ -1,0 +1,9 @@
+.side-bar{
+    height: 100%;
+    width: 22%;
+    background: #636e72;
+    position: fixed;
+    top:0;
+    left:-400px;
+    overflow-x: hidden;
+}

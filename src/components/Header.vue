@@ -2,7 +2,7 @@
   <header>
     <div class="nav-bar">
       <div class="side-bar">
-        <label class="menuicon" @click = "toggle">
+        <label class="menuicon" @click = "showSide">
           <span></span>
           <span></span>
           <span></span>
@@ -61,19 +61,14 @@ export default {
   components: {InsertForm},
   data() {
     return {
-      searchWords: "",
-      sideBarState:false
+      sideState:false
     }
   },
-  props:{
-
-  },
   methods: ({
-      toggle(){
-        this.sideBarState = true;
+      showSide(){
+        this.$emit("side-key", this.sideState = !this.sideState);
       }
-
-  })
+  }),
 }
 </script>
 

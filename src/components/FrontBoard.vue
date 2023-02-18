@@ -1,33 +1,45 @@
 <template>
   <div id="app">
-    <Header id="header"/>
-    <Transition name ="fade" v-if = >
-    <SideBar></SideBar>
-    </Transition>
-    <router-view></router-view>
-    <Footer id="footer"/>
+    <childHeader  class="header-area" @side-key="getState"/>
+    <router-view class="content-area"/>
+    <childFooter class="footer-area"/>
   </div>
+  <Transition name="slide-fade">
+    <childSideBar ref="side" class="side-area" v-show="this.sideBar"/>
+  </Transition>
 </template>
 <script>
-import Header from "../components/Header.vue";
-import Footer from "../components/Footer.vue";
-import join from "../components/Join.vue";
-import SideBar from "../components/SideBar.vue";
+import childHeader from "../components/Header.vue";
+import childFooter from "../components/Footer.vue";
+import childJoin from "../components/Join.vue";
+import childSideBar from "../components/SideBar.vue";
 
-export default ({
-  components: {Footer, Header, join, SideBar},
-
-  methods: {
-    showSide(){
-      this.$refs().Header.toggle();
+export default {
+  components: {childFooter, childHeader, childJoin, childSideBar},
+  data() {
+    return {
+      sideBar: false
     }
-
+  },
+  mounted() {
+  },
+  methods: {
+    getState(data) { //자식 컴포넌트 값 받아오기
+      this.sideBar = data;
+    },
+    closeSlide(e) { // 영역 밖 클릭시 닫음
+      if (e.target.parentNode ===  this.$refs.header.$refs["side-btn"]){
+        this.sideBar = false;
+      }
+    }
   }
-})
+}
 
 </script>
 
 <style scoped>
+@import "../assets/FrontBoard.css";
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

@@ -1,8 +1,9 @@
 <template>
-  <div class="side-bar">
+  <div class="side-box" ref="side-box">
     <ul>
-      <li id = "userBox">
-      </li>
+      <div>
+        <p>테스트</p>
+      </div>
       <li>test</li>
       <li>test</li>
       <li>test</li>
